@@ -9,16 +9,15 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 
 @Service
-public class cartaoService {
+public class CartaoService {
 
-    private byte[] gerarImagem() {
+    public byte[] gerarImagem() {
         byte[] retorno = null;
 
-        String diretorio = "C:/Users/luisp/OneDrive/Área de Trabalho/Arquivos MJV/PCBS_WebServiceSaude" +
-                "/PCBS-WebServicesSaude-web/web/includes";
+        String diretorio = "G:\\projetos\\bradesco-saude\\src\\main\\resources";
 
-        String relatorio = diretorio + "/reports/cartoes/cartao_27.jrxml";
-        String imagem = diretorio + "/imagens/pt_BR/27.png";
+        String relatorio = diretorio + "/report/cartao_27.jasper";
+        String imagem = diretorio + "/img/27.png";
         try {
 
             HashMap<String, Object> parametros = new HashMap<String, Object>();
