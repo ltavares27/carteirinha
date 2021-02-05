@@ -1,9 +1,7 @@
 package br.com.bradesco.saude.service;
 
 
-import net.sf.jasperreports.engine.JasperExportManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.*;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -14,11 +12,12 @@ public class CartaoService {
     public byte[] gerarImagem() {
         byte[] retorno = null;
 
-        String diretorio = "G:\\projetos\\bradesco-saude\\src\\main\\resources";
+        String diretorio = "G:/projetos/bradesco-saude/src/main/resources";
 
-        String relatorio = diretorio + "/report/cartao_27.jasper";
+        String relatorio = diretorio + "/report/27.jrxml";
         String imagem = diretorio + "/img/27.png";
         try {
+            JasperReport jasperReport = JasperCompileManager.compileReport(relatorio);
 
             HashMap<String, Object> parametros = new HashMap<String, Object>();
 
@@ -38,9 +37,9 @@ public class CartaoService {
             parametros.put("codDependente", "01");
             parametros.put("numeroCartao", "000 0000 0000 0000");
 
+            // Objeto para a ser retornado
+            retorno = JasperRunManager.runReportToPdf(jasperReport, parametros);
 
-            JasperPrint jasperPrint = JasperFillManager.fillReport(relatorio, parametros);
-            JasperExportManager.exportReportToPdfFile(jasperPrint, "C:/temp/cartao.pdf");
 
         } catch (Exception e) {
             e.printStackTrace();

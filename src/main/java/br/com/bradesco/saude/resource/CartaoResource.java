@@ -2,7 +2,9 @@ package br.com.bradesco.saude.resource;
 
 import br.com.bradesco.saude.service.CartaoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,13 @@ public class CartaoResource {
 
     @GetMapping(value = "/upload")
     public ResponseEntity<?> upload() {
-        return ResponseEntity.status(HttpStatus.OK).
-                body(cartaoService.gerarImagem());
+        byte[] dados = this.cartaoService.gerarImagem();
+        if (dados != null) {
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_PDF)
+                    .header(HttpHeaders.CONTENT_DISPOSITION,
+                            "attachment; filename=cartao_bradesco.pdf".replace(" ", "_"))
+                    .contentLength(dados.length).body(dados);
+        }
+        return ResponseEntity.badRequest().build();
     }
 }
