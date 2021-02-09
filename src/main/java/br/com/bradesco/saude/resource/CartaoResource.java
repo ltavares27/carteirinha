@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.util.Base64;
 
 @RestController
 @RequestMapping("/cartoes")
@@ -41,6 +42,21 @@ public class CartaoResource {
                         .contentType(MediaType.parseMediaType("application/octet-stream"))
                         .body(bytes);
             }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping(value = "/transformbase64")
+    public ResponseEntity<?> transformBase64 () {
+        try {
+            byte[] bytes = this.cartaoService.montarParametrosCrtao();
+
+            return ResponseEntity.ok(Base64.getEncoder().encodeToString(bytes));
 
         } catch (IOException e) {
             e.printStackTrace();
