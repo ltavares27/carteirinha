@@ -66,7 +66,7 @@
 		<band height="337">
 			<image>
 				<reportElement x="30" y="0" width="480" height="270"/>
-				<imageExpression><![CDATA["C:/Users/luisp/OneDrive/Área de Trabalho/Arquivos MJV/PCBS_WebServiceSaude/PCBS-WebServicesSaude-web/web/includes/imagens/pt_BR/27.png"]]></imageExpression>
+				<imageExpression><![CDATA["G:/projetos/bradesco-saude/src/main/resources/img/27.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="54" y="46" width="120" height="20" forecolor="#FFFFFF" />

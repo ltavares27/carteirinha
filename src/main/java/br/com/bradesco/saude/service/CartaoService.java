@@ -2,8 +2,14 @@ package br.com.bradesco.saude.service;
 
 
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.export.JRGraphics2DExporter;
+import net.sf.jasperreports.engine.export.JRGraphics2DExporterParameter;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.HashMap;
 
 @Service
@@ -40,11 +46,26 @@ public class CartaoService {
             // Objeto para a ser retornado
             retorno = JasperRunManager.runReportToPdf(jasperReport, parametros);
 
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametros);
+
+            BufferedImage image = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
+
+            JRGraphics2DExporter exporter = new JRGraphics2DExporter();
+
+            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+            exporter.setParameter(JRGraphics2DExporterParameter.GRAPHICS_2D, (Graphics2D)image.getGraphics());
+            exporter.setParameter(JRGraphics2DExporterParameter.ZOOM_RATIO, Float.valueOf(1));
+
+            exporter.exportReport();
+
+            ImageIO.write(image, "PNG", new File("G:/temp/image.png"));
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
         return retorno;
     }
+
 
 }
