@@ -10,13 +10,15 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 
 @Service
 public class CartaoService {
 
-    public byte[] gerarImagem() {
-        byte[] retorno = null;
+    public String montarParametrosCrtao() {
+
+        JasperPrint jasperPrint = new JasperPrint();
 
         String diretorio = "G:/projetos/bradesco-saude/src/main/resources";
 
@@ -43,29 +45,30 @@ public class CartaoService {
             parametros.put("codDependente", "01");
             parametros.put("numeroCartao", "000 0000 0000 0000");
 
-            // Objeto para a ser retornado
-            retorno = JasperRunManager.runReportToPdf(jasperReport, parametros);
+            jasperPrint = JasperFillManager.fillReport(jasperReport, parametros);
 
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parametros);
-
-            BufferedImage image = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
-
-            JRGraphics2DExporter exporter = new JRGraphics2DExporter();
-
-            exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
-            exporter.setParameter(JRGraphics2DExporterParameter.GRAPHICS_2D, (Graphics2D)image.getGraphics());
-            exporter.setParameter(JRGraphics2DExporterParameter.ZOOM_RATIO, Float.valueOf(1));
-
-            exporter.exportReport();
-
-            ImageIO.write(image, "PNG", new File("G:/temp/image.png"));
-
+            gerarImagem(jasperPrint);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return retorno;
+
+        return "Carteirinha gerada com sucesso";
     }
 
+    public void gerarImagem(JasperPrint jasperPrint) throws JRException, IOException {
+
+        BufferedImage image = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
+
+        JRGraphics2DExporter exporter = new JRGraphics2DExporter();
+
+        exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
+        exporter.setParameter(JRGraphics2DExporterParameter.GRAPHICS_2D, (Graphics2D)image.getGraphics());
+        exporter.setParameter(JRGraphics2DExporterParameter.ZOOM_RATIO, Float.valueOf(1));
+
+        exporter.exportReport();
+
+        ImageIO.write(image, "png", new File("G:/temp/image.png"));
+    }
 
 }

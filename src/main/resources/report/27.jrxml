@@ -57,7 +57,7 @@
 	<parameter name="nomeTitular" class="java.lang.String"/>
 	<parameter name="nomeDependente" class="java.lang.String"/>
 	<parameter name="codTitular" class="java.lang.String"/>
-	<parameter name="codDepedente" class="java.lang.String"/>
+	<parameter name="codDependente" class="java.lang.String"/>
 	<parameter name="numeroCartao" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
@@ -157,7 +157,7 @@
 				<textElement>
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{codDepedente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{codDependente}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="54" y="224" width="317" height="20" forecolor="#FFFFFF"/>
