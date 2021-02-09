@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 6.5.1  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="27" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 3.7.5  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="27" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="template.engine" value="tabular_template"/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
-	<style name="Table">
+	<style name="Table" lineSpacing="Single">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
 			<topPen lineWidth="1.0" lineColor="#000000"/>
@@ -12,7 +12,7 @@
 			<rightPen lineWidth="1.0" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF" lineSpacing="Single">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 			<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -21,7 +21,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="Table_CH" mode="Opaque" backcolor="#EFEFEF">
+	<style name="Table_CH" mode="Opaque" backcolor="#EFEFEF" lineSpacing="Single">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 			<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -30,7 +30,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF" lineSpacing="Single">
 		<box>
 			<pen lineWidth="0.5" lineColor="#000000"/>
 			<topPen lineWidth="0.5" lineColor="#000000"/>
@@ -39,7 +39,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<subDataset name="tableDataset" >
+	<subDataset name="tableDataset">
 		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 		<queryString>
 			<![CDATA[]]>
@@ -59,112 +59,113 @@
 	<parameter name="codTitular" class="java.lang.String"/>
 	<parameter name="codDependente" class="java.lang.String"/>
 	<parameter name="numeroCartao" class="java.lang.String"/>
+	<parameter name="imagemCartao" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
 	<columnHeader>
 		<band height="337">
-			<image>
-				<reportElement x="30" y="0" width="480" height="270"/>
-				<imageExpression><![CDATA["G:/projetos/bradesco-saude/src/main/resources/img/27.png"]]></imageExpression>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Middle">
+				<reportElement x="0" y="0" width="480" height="270"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{imagemCartao}]]></imageExpression>
 			</image>
 			<textField>
-				<reportElement x="54" y="46" width="120" height="20" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="23" y="46" width="120" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{ramo}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{ramo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="84" width="100" height="20" forecolor="#FFFFFF"/>
-				<textElement>
+				<reportElement x="23" y="84" width="100" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{plano}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{plano}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="156" y="84" width="100" height="20" forecolor="#FFFFFF"/>
-				<textElement>
+				<reportElement x="125" y="84" width="100" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{acomodacao}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{acomodacao}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="249" y="85" width="118" height="19" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="218" y="85" width="118" height="19" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{seguroViagem}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{seguroViagem}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="373" y="85" width="100" height="19" forecolor="#FFFFFF"/>
-				<textElement>
+				<reportElement x="342" y="85" width="100" height="19" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{redeDental}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{redeDental}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="104" width="166" height="20" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="23" y="104" width="166" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{redeSaude}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{redeSaude}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="377" y="106" width="100" height="20" forecolor="#FFFFFF"/>
-				<textElement>
+				<reportElement x="344" y="106" width="100" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{possuiDental}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{possuiDental}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="148" width="236" height="20" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="23" y="148" width="236" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nomeEmpresa}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeEmpresa}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="169" width="236" height="20" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="23" y="169" width="236" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nomeTitular}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeTitular}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="53" y="189" width="237" height="20" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="22" y="189" width="237" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{nomeDependente}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeDependente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="322" y="150" width="57" height="20" forecolor="#FFFFFF"/>
-				<textElement>
+				<reportElement x="291" y="150" width="57" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{dataValidade}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dataValidade}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="320" y="169" width="59" height="21" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="289" y="169" width="59" height="21" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{codTitular}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{codTitular}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="320" y="190" width="60" height="19" forecolor="#FFFFFF" />
-				<textElement>
+				<reportElement x="289" y="190" width="60" height="19" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{codDependente}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{codDependente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="54" y="224" width="317" height="20" forecolor="#FFFFFF"/>
-				<textElement>
+				<reportElement x="23" y="224" width="317" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{numeroCartao}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{numeroCartao}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

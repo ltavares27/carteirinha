@@ -9,14 +9,14 @@ import org.springframework.stereotype.Service;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
 @Service
 public class CartaoService {
 
-    public String montarParametrosCrtao() {
+    public byte[] montarParametrosCrtao() throws IOException, JRException {
 
         JasperPrint jasperPrint = new JasperPrint();
 
@@ -47,28 +47,33 @@ public class CartaoService {
 
             jasperPrint = JasperFillManager.fillReport(jasperReport, parametros);
 
-            gerarImagem(jasperPrint);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return "Carteirinha gerada com sucesso";
+        return gerarImagem(jasperPrint);
     }
 
-    public void gerarImagem(JasperPrint jasperPrint) throws JRException, IOException {
+    public byte[] gerarImagem(JasperPrint jasperPrint) throws JRException, IOException {
 
-        BufferedImage image = new BufferedImage(800, 600, BufferedImage.TYPE_INT_RGB);
+        BufferedImage image = new BufferedImage(519, 310, BufferedImage.TYPE_INT_RGB);
 
         JRGraphics2DExporter exporter = new JRGraphics2DExporter();
 
         exporter.setParameter(JRExporterParameter.JASPER_PRINT, jasperPrint);
         exporter.setParameter(JRGraphics2DExporterParameter.GRAPHICS_2D, (Graphics2D)image.getGraphics());
         exporter.setParameter(JRGraphics2DExporterParameter.ZOOM_RATIO, Float.valueOf(1));
-
         exporter.exportReport();
 
-        ImageIO.write(image, "png", new File("G:/temp/image.png"));
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(image, "JPG", byteArrayOutputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return byteArrayOutputStream.toByteArray();
+
     }
 
 }

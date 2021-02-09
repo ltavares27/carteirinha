@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 @RestController
@@ -28,8 +25,29 @@ public class CartaoResource {
 
 
     @GetMapping(value = "/upload")
-    public ResponseEntity<?> gerarJasper() {
-        return ResponseEntity.ok(this.cartaoService.montarParametrosCrtao());
+    public ResponseEntity<?> gerarImagem() {
+        try {
+            byte[] bytes = this.cartaoService.montarParametrosCrtao();
+
+            if (bytes != null) {
+                HttpHeaders header = new HttpHeaders();
+                header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + "cartao.png");
+                header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+                header.add("Pragma", "no-cache");
+                header.add("Expires", "0");
+                return ResponseEntity.ok()
+                        .headers(header)
+                        .contentLength(bytes.length)
+                        .contentType(MediaType.parseMediaType("application/octet-stream"))
+                        .body(bytes);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JRException e) {
+            e.printStackTrace();
+        }
+        return ResponseEntity.badRequest().build();
     }
 
 /*    @GetMapping(value = "/gerar/jasper")
