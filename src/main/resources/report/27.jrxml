@@ -65,9 +65,9 @@
 	</queryString>
 	<columnHeader>
 		<band height="337">
-			<image scaleImage="FillFrame" hAlign="Left" vAlign="Middle">
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top">
 				<reportElement x="0" y="0" width="480" height="270"/>
-				<imageExpression class="java.lang.String"><![CDATA[$P{imagemCartao}]]></imageExpression>
+				<imageExpression class="java.lang.String"><![CDATA["G:/projetos/bradesco-saude/src/main/resources/img/27.png"]]></imageExpression>
 			</image>
 			<textField>
 				<reportElement x="23" y="46" width="120" height="20" forecolor="#FFFFFF"/>
@@ -140,21 +140,21 @@
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeDependente}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="291" y="150" width="57" height="20" forecolor="#FFFFFF"/>
+				<reportElement x="303" y="150" width="57" height="20" forecolor="#FFFFFF"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{dataValidade}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="289" y="169" width="59" height="21" forecolor="#FFFFFF"/>
+				<reportElement x="301" y="169" width="59" height="21" forecolor="#FFFFFF"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<textFieldExpression class="java.lang.String"><![CDATA[$P{codTitular}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="289" y="190" width="60" height="19" forecolor="#FFFFFF"/>
+				<reportElement x="301" y="190" width="60" height="19" forecolor="#FFFFFF"/>
 				<textElement lineSpacing="Single">
 					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>

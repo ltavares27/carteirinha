@@ -57,7 +57,6 @@ public class CartaoResource {
             byte[] bytes = this.cartaoService.montarParametrosCrtao();
 
             return ResponseEntity.ok(Base64.getEncoder().encodeToString(bytes));
-
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JRException e) {
