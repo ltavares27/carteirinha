@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.5.1.final using JasperReports Library version 3.7.5  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="492" pageWidth="792" pageHeight="612" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table" lineSpacing="Single">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF" lineSpacing="Single">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#EFEFEF" lineSpacing="Single">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF" lineSpacing="Single">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tableDataset">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+	</subDataset>
+	<parameter name="ramo" class="java.lang.String"/>
+	<parameter name="plano" class="java.lang.String"/>
+	<parameter name="acomodacao" class="java.lang.String"/>
+	<parameter name="seguroViagem" class="java.lang.String"/>
+	<parameter name="redeDental" class="java.lang.String"/>
+	<parameter name="redeSaude" class="java.lang.String"/>
+	<parameter name="possuiDental" class="java.lang.String"/>
+	<parameter name="dataValidade" class="java.lang.String"/>
+	<parameter name="nomeEmpresa" class="java.lang.String"/>
+	<parameter name="nomeTitular" class="java.lang.String"/>
+	<parameter name="nomeDependente" class="java.lang.String"/>
+	<parameter name="codTitular" class="java.lang.String"/>
+	<parameter name="codDependente" class="java.lang.String"/>
+	<parameter name="numeroCartao" class="java.lang.String"/>
+	<parameter name="imagemCartao" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<columnHeader>
+		<band height="320">
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top">
+				<reportElement x="0" y="0" width="480" height="270"/>
+				<imageExpression><![CDATA["G:/projetos/bradesco-saude/src/main/resources/img/492.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="23" y="84" width="100" height="20" forecolor="#030303"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{plano}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="104" width="166" height="20" forecolor="#030303"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{redeSaude}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="84" width="100" height="20" forecolor="#030303"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{acomodacao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="85" width="118" height="19" forecolor="#030303"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{seguroViagem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="342" y="85" width="100" height="19" forecolor="#030303"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{redeDental}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="106" width="100" height="20" forecolor="#030303"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{possuiDental}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="156" width="57" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{dataValidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="175" width="59" height="21" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{codTitular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="299" y="196" width="60" height="19" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{codDependente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="154" width="236" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="175" width="236" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeTitular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="22" y="195" width="237" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nomeDependente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="224" width="317" height="20" forecolor="#FFFFFF"/>
+				<textElement lineSpacing="Single">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{numeroCartao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+</jasperReport>
