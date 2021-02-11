@@ -22,8 +22,8 @@ public class CartaoService {
 
         String diretorio = "G:/projetos/bradesco-saude/src/main/resources";
 
-        String relatorio = diretorio + "/report/27.jrxml";
-        String imagem = diretorio + "/img/27.png";
+        String relatorio = diretorio + "/report/450.jrxml";
+        String imagem = diretorio + "/img/450.png";
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(relatorio);
 
@@ -32,7 +32,7 @@ public class CartaoService {
             parametros.put("imagemCartao", imagem);
             parametros.put("ramo", "EMPRESA");
             parametros.put("plano", "SAÚDE TOP");
-            parametros.put("acomodacao", "QUARTO");
+            parametros.put("acomodacao", "ENFERMAGEM");
             parametros.put("seguroViagem", "SEGURO VIAGEM");
             parametros.put("redeDental", "TOP C/ ORTO");
             parametros.put("redeSaude", "NACIONAL PLUS");
